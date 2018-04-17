@@ -2,7 +2,6 @@ pec_version: 1
 kind: application
 metadata:
   name: client
-inputs:
 configuration:
   healthcheck:
     script: client-hc.sh
@@ -21,7 +20,6 @@ deploymentDefaults:
     image: quali/ubuntu:dotnet-new-new-elk-pip3
   - cloud: minikube
     image: quali/ubuntu:dotnet-new-new-elk-pip3
-infrastructure:
 source:
   image:
     ami:
