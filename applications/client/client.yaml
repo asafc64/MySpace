@@ -33,3 +33,4 @@ source:
     - name: quali/ubuntu:dotnet-new-elk-pip3
       tag: latest
   os_type: linux
+spec_version: 1
