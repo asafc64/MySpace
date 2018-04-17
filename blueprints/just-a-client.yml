@@ -1,7 +1,5 @@
 applications:
-- client:
-    input_values:
-    depends_on:
+- client
 name: just-a-client
 spec_version: 1
 kind: blueprint
