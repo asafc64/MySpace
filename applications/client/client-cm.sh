@@ -1,5 +1,5 @@
 #!/bin/bash -eux
 
-sudo yum install python
+sudo apt-get install python
 
 python -c 'print(e)'
