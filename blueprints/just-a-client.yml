@@ -4,10 +4,7 @@ applications:
     depends_on:
 name: just-a-client
 spec_version: 1
-inputs:
 kind: blueprint
-artifacts:
-- client: ''
 clouds:
 - aws-staging: eu-west-2
 environmentType: sandbox
