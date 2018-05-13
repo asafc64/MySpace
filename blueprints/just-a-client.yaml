@@ -3,12 +3,12 @@ applications:
 name: just-a-client
 spec_version: 1
 kind: blueprint
-clouds_1:
+clouds:
 - aws-staging: eu-west-2
 environmentType: sandbox
 inputs:
 - FirstInput: 1234
 - SecondInput:
-    display: masked | normal (default)
+    display: masked22
     description: please set the root database password
     default_value: 123456 
