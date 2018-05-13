@@ -3,7 +3,7 @@ applications:
 name: just-a-client
 spec_version: 1
 kind: blueprint
-clouds:
+clouds_1:
 - aws-staging: eu-west-2
 environmentType: sandbox
 inputs:
