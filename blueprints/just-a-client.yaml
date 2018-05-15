@@ -11,4 +11,3 @@ inputs:
 - SecondInput:
     display_style: masked4
     description: please set the root database password
-    default_value: 123456 
