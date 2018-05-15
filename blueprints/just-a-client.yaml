@@ -9,5 +9,5 @@ environmentType: sandbox
 inputs:
 - FirstInput: 1234
 - SecondInput:
-    display_style: masked4
+    display_style: masked
     description: please set the root database password
