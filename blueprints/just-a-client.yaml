@@ -7,7 +7,7 @@ clouds:
 - aws-staging: eu-west-2
 environmentType: sandbox
 inputs:
-- FirstInput: 1234
+- FirstInput
 - SecondInput:
     display_style: masked
     description: please set the root database password
