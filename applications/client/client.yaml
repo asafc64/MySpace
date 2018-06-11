@@ -12,23 +12,13 @@ configuration:
     script: client-go.sh
 deploymentDefaults:
   images:
-  - cloud: aws-staging
-    image: ami-0ba9283e196fbedb0
-  - cloud: aws-deedee
-    image: ami-02608d939b50361de
-  - cloud: kubernetes-testing
-    image: quali/ubuntu:dotnet-new-new-elk-pip3
-  - cloud: minikube
-    image: quali/ubuntu:dotnet-new-new-elk-pip3
+  - cloud: aws
+    image: ami-2a5b0d46
 source:
   image:
     ami:
-    - id: ami-0ba9283e196fbedb0
-      region: eu-west-2
-    - id: ami-02608d939b50361de
-      region: us-west-1
-    - id: ami-007607e9a8435f3bc
-      region: eu-west-1
+    - id: ami-2a5b0d46
+      region: sa-east-1
     docker_image:
     - name: quali/ubuntu:dotnet-new-elk-pip3
       tag: latest
