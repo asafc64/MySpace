@@ -11,3 +11,5 @@ inputs:
 - SecondInput:
     display_style: masked
     description: please set the root database password
+- ThirdInput:
+    default_value: 123
