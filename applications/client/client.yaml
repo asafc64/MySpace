@@ -11,7 +11,7 @@ configuration:
   initialization:
     script: client-cm.sh
   start:
-    script: client-go.sh
+    script: {A1} client-go.sh
 deploymentDefaults:
   images:
   - cloud: aws
