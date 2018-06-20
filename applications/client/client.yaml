@@ -1,7 +1,7 @@
 pec_version: 1
 kind: application
 inputs:
-- A1: ''
+- A1
 metadata:
   name: client
 configuration:
