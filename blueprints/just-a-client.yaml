@@ -4,7 +4,7 @@ name: just-a-client
 spec_version: 1
 kind: blueprint
 clouds:
-- aws: sa-east-1
+- aws-staging: sa-east-1
 environmentType: sandbox
 inputs:
 - FirstInput
