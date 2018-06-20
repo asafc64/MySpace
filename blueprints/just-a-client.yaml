@@ -8,6 +8,4 @@ clouds:
 environmentType: sandbox
 inputs:
 - FirstInput
-- SecondInput:
-  display_style: masked
-  description: please set the root database password
+- SecondInput: A
