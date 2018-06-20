@@ -1,4 +1,4 @@
-applications
+applications:
 - client
 name: just-a-client
 spec_version: 1
