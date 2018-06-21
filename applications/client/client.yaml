@@ -8,7 +8,7 @@ configuration:
   healthcheck:
     script: client-hc.sh
     timeout: 1000
-    WaitForPorts: $BB
+    wait_for_ports: $BB
   initialization:
     script: client-cm.sh
   start:
