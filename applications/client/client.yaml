@@ -6,8 +6,8 @@ metadata:
   name: client
 configuration:
   healthcheck:
-    script: client-hc.sh
-    timeout: $A1
+    script: $A1
+    timeout: 1000
   initialization:
     script: client-cm.sh
   start:
