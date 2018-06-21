@@ -11,7 +11,7 @@ configuration:
   initialization:
     script: client-cm.sh
   start:
-    script: $A1 client-go.sh
+    script: $A1
 deploymentDefaults:
   images:
   - cloud: aws
@@ -22,7 +22,7 @@ source:
     - id: ami-2a5b0d46
       region: eu-west-2
     docker_image:
-    - name: quali/ubuntu:dotnet-new-elk-pip3
+    - name: $A1
       tag: latest
   os_type: linux
 spec_version: 1
