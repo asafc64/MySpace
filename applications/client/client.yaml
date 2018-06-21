@@ -21,7 +21,7 @@ source:
   image:
     ami:
     - id: ami-2a5b0d46
-      region: sa-east-1
+      region: eu-west-2
     docker_image:
     - name: quali/ubuntu:dotnet-new-elk-pip3
       tag: latest
