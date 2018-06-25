@@ -1,9 +1,3 @@
-applications:
-- client
-
-- hardening
-    input_values:
-      - nodejs_tag
 name: just-a-client
 spec_version: 1
 kind: blueprint
@@ -17,3 +11,9 @@ inputs:
     description: please set the root database password
 - ThirdInput:
     default_value: 123
+applications:
+- client
+
+- hardening
+    input_values:
+      - nodejs_tag
