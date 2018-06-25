@@ -1,5 +1,9 @@
 applications:
 - client
+
+- hardening
+    input_values:
+      - nodejs_tag
 name: just-a-client
 spec_version: 1
 kind: blueprint
