@@ -12,8 +12,4 @@ inputs:
 - ThirdInput:
     default_value: 123
 applications:
-- client
-
-- hardening
-    input_values:
-      - nodejs_tag
+- client9
