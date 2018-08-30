@@ -1,0 +1,30 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+ "resources": [
+   {
+            "comments": "Generalized from resource: '/subscriptions/1117f95d-1ee4-41c7-80c4-2d67225c4120/resourceGroups/1m7psesksp003/providers/Microsoft.Network/dnszones/1m7psesksp003.sandbox.com'.",
+            "type": "Microsoft.Network/dnszones",
+            "name": "[parameters('dnszones_1m7psesksp003.sandbox.com_name')]",
+            "apiVersion": "2017-10-01",
+            "location": "global",
+            "tags": {
+                "sandboxId": "1m7psesksp003"
+            },
+            "scale": null,
+            "properties": {
+                "maxNumberOfRecordSets": 5000,
+                "nameServers": null,
+                "numberOfRecordSets": 3,
+                "registrationVirtualNetworks": [
+                    {
+                        "id": "[parameters('dnszones_1m7psesksp003.sandbox.com_id')]"
+                    }
+                ],
+                "resolutionVirtualNetworks": [],
+                "zoneType": "Private"
+            },
+            "dependsOn": []
+        }
+    ]
+}
