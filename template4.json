@@ -17,11 +17,12 @@
                 "nameServers": null,
                 "numberOfRecordSets": 3,
                 "registrationVirtualNetworks": [
-                    {
-                        "id": "[resourceId('Microsoft.Network/virtualNetworks', 'infra_vnet')]"
-                    }
+                   
                 ],
-                "resolutionVirtualNetworks": [],
+                "resolutionVirtualNetworks": [
+                 {
+                        "id": "[resourceId('Microsoft.Network/virtualNetworks', 'infra_vnet')]"
+                    }],
                 "zoneType": "Private"
             },
             "dependsOn": []
