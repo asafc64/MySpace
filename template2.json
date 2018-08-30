@@ -5,7 +5,7 @@
    {
             "comments": "Generalized from resource: '/subscriptions/1117f95d-1ee4-41c7-80c4-2d67225c4120/resourceGroups/1m7psesksp003/providers/Microsoft.Network/dnszones/1m7psesksp003.sandbox.com'.",
             "type": "Microsoft.Network/dnszones",
-            "name": "1m7psesksp003.sandbox.com')]",
+            "name": "1m7psesksp003.sandbox.com",
             "apiVersion": "2017-10-01",
             "location": "global",
             "tags": {
