@@ -13,8 +13,6 @@ inputs:
     default_value: 123
 applications:
 - client9
-    ewdfwd:
-        -fddfdf
 infrastructure:
    connectivity:
      virtual_network: 
