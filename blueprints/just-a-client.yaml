@@ -15,3 +15,12 @@ applications:
 - client9
     ewdfwd:
         -fddfdf
+infrastructure:
+   connectivity:
+     virtual_network: 
+       id: colony-nwrlyte3ytkz10930/assaf-vpc
+       subnets:
+         management: 
+          - subnet_try1
+         application: 
+           - subnet_try1
