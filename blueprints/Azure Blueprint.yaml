@@ -13,7 +13,7 @@ metadata:
 
 
 clouds:
-  - azure: westus
+  - azure-staging: westus
 
 inputs:
   - advanced_app_port: 1234
