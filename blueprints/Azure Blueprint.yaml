@@ -1,0 +1,34 @@
+#    This is a sample blueprint that deploys two applications in AWS
+#    - basic_app - a simple 1 instance VM from an image
+#    - advanced_app - 2 VMs with a loadbalancer, configured with custom scripts with user inputs
+#
+#    https://colonysupport.quali.com/hc/en-us/articles/360001632548-The-Blueprint-YAML-File
+#
+---
+spec_version: 1
+kind: blueprint
+
+metadata:
+  description: Blueprint that deploys two applications in Azure
+
+
+clouds:
+  - azure: westus
+
+inputs:
+  - advanced_app_port: 1234
+
+
+applications:
+  - basic_app:
+      instances: 1
+
+  - advanced_app:
+      instances: 2
+      depends_on:
+        - basic_app
+      input_values:
+        - port_number : $advanced_app_port
+
+
+

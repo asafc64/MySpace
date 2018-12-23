@@ -1,0 +1,38 @@
+spec_version: 1
+kind: application
+
+source:
+  os_type: linux
+  image:
+    ami:                                                   # AWS Image
+      - id: ami-12d1d16b
+        region: eu-west-1
+        username: root
+    azure_image:                                           # Azure Image
+      - urn: cognosys:secured-drupal-on-centos:secured-drupal-on-centos:1.2.0
+        username: adminuser
+
+infrastructure:
+  compute:
+    spec:
+      aws:
+        instance_type: t2.medium
+      azure:
+        vm_size: Basic_A2
+  connectivity:
+    external:
+      - port_info:
+          port: 80
+
+configuration:
+  healthcheck:
+    wait_for_ports: ALL
+    timeout: 180
+
+debugging:
+  connection_protocol: SSH
+
+
+# cognosys:secured-drupal-on-centos:secured-drupal-on-centos:1.2.0
+# Bitnami:drupal:8-0:8.6.1812060011
+# your-shop-online:herefordshire-enterprise-platform-drupal-7:herefordshire-1:1.0.0

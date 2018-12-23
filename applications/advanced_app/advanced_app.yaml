@@ -1,0 +1,41 @@
+spec_version: 1
+kind: application
+
+source:
+  os_type: linux
+  image:
+    ami:                                                   # AWS Image
+      - id: ami-f90a4880
+        region: eu-west-1
+        username: ubuntu
+    azure_image:                                           # Azure Image
+      - urn: Canonical:UbuntuServer:16.04-LTS:latest
+        username: adminuser
+
+inputs:
+  - port_number
+
+infrastructure:
+  compute:
+    spec:
+      aws:
+        instance_type: t2.medium
+      azure:
+        vm_size: Standard_A0
+
+  connectivity:
+    external:
+      - port_info:
+          port: $port_number
+
+configuration:
+  initialization:
+    script: init.sh
+  start:
+    script: start.sh
+  healthcheck:
+    wait_for_ports: ALL
+    timeout: 180
+
+debugging:
+  connection_protocol: SSH
