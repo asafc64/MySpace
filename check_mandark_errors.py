@@ -127,11 +127,11 @@ errors = client.count_errors(sandbox_id=sandbox_id)
 if errors:
     link_url = f'https://app.logz.io/#/dashboard/kibana/discover?' \
                f'_g=(refreshInterval:(display:Off,pause:!f,value:0),time:(from:now-2d,mode:quick,to:now))&' \
-               f'_a=(columns:!(message),filters:!((%27$state%27:(store:appState),meta:(alias:!n,disabled:!f,index:%5BlogzioCustomerIndex%5DYYMMDD,key:colony.sandbox_id,negate:!f,params:(query:{sandbox_id},type:phrase),type:phrase,value:fo6d6lg2lg02c1),query:(match:(colony.sandbox_id:(query:fo6d6lg2lg02c1,type:phrase)))),(%27$state%27:(store:appState),meta:(alias:!n,disabled:!f,index:%5BlogzioCustomerIndex%5DYYMMDD,key:colony.level,negate:!f,params:!(ERROR,FATAL),type:phrases,value:%27ERROR,%20FATAL%27),query:(bool:(minimum_should_match:1,should:!((match_phrase:(colony.level:ERROR)),(match_phrase:(colony.level:FATAL))))))),index:%5BlogzioCustomerIndex%5DYYMMDD,interval:auto,query:(language:lucene,query:%27%27),sort:!(%27@timestamp%27,desc))&' \
+               f'_a=(columns:!(message),filters:!((%27$state%27:(store:appState),meta:(alias:!n,disabled:!f,index:%5BlogzioCustomerIndex%5DYYMMDD,key:colony.sandbox_id,negate:!f,params:(query:{sandbox_id},type:phrase),type:phrase,value:{sandbox_id}),query:(match:(colony.sandbox_id:(query:{sandbox_id},type:phrase)))),(%27$state%27:(store:appState),meta:(alias:!n,disabled:!f,index:%5BlogzioCustomerIndex%5DYYMMDD,key:colony.level,negate:!f,params:!(ERROR,FATAL),type:phrases,value:%27ERROR,%20FATAL%27),query:(bool:(minimum_should_match:1,should:!((match_phrase:(colony.level:ERROR)),(match_phrase:(colony.level:FATAL))))))),index:%5BlogzioCustomerIndex%5DYYMMDD,interval:auto,query:(language:lucene,query:%27%27),sort:!(%27@timestamp%27,desc))&' \
                f'accountIds&' \
                f'switchToAccountId=27106'
     print(f"##teamcity[buildProblem description='Mandark {sandbox_id} has {errors} error(s)']")
-    print(f"##teamcity[progressMessage 'View errors: {link_url}']")  
+    print(f"##teamcity[progressMessage 'View errors: {link_url}']")
 else:
     print(f"##teamcity[message text='Mandark {sandbox_id} has no errors']")
 
