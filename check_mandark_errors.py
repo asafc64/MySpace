@@ -19,17 +19,19 @@ LOGZIO_PASSWORD = 'milena3!'
 
 
 class LogzioClient:
+    USER_AGENT = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.80 Safari/537.36'
+
     def __init__(self, username: str, password: str):
         self._session = requests.session()
         jwt_token_id = self._get_jwt_token_id(username=username, password=password)
         jwt_cookie_data = self._get_jwt_cookie(jwt_token_id=jwt_token_id)
 
         self._auth_token = jwt_cookie_data['sessionToken']
-        self._logz_auth_token = self._session.cookies.get_dict()['Logzio-Csrf']
 
     def _get_jwt_token_id(self, username: str, password: str) -> str:
         response = self._session.post(
             url='https://logzio.auth0.com/oauth/ro',
+            headers={'user-agent': self.USER_AGENT},
             json={
                 'scope': 'openid email connection',
                 'response_type': 'token',
@@ -55,6 +57,7 @@ class LogzioClient:
     def _get_jwt_cookie(self, jwt_token_id: str) -> dict:
         response = self._session.post(
             url='https://app.logz.io/login/jwt',
+            headers={'user-agent': self.USER_AGENT},
             json={'jwt': jwt_token_id})
 
         if not response.ok:
@@ -93,8 +96,8 @@ class LogzioClient:
                 url='https://app.logz.io/kibana/elasticsearch/_msearch',
                 headers={
                     'content-type': 'application/x-ndjson',
+                    'user-agent': self.USER_AGENT,
                     'x-auth-token': self._auth_token,
-                    'x-logz-csrf-token': self._logz_auth_token
                 },
                 data=f'{json.dumps(metadata)}\n{json.dumps(query)}')
 
@@ -110,7 +113,7 @@ class LogzioClient:
 
     def _get_last_two_days_indices(self):
         utc_now = datetime.datetime.utcnow()
-        utc_yesterday = utc_now - datetime.timedelta(1)
+        utc_yesterday = utc_now - datetime.timedelta(days=1)
         indices = [str(x.year)[2:4] + str(x.month).zfill(2) + str(x.day).zfill(2) for x in [utc_now, utc_yesterday]]
         return indices  # Example: 06.02.2019 -> '190206'
 
@@ -120,7 +123,7 @@ if len(sys.argv) < 2:
     exit(1)
 sandbox_id = sys.argv[1]
 
-print(f"##teamcity[progressMessage 'Checking errors in mandark {sandbox_id} logs']")
+print(f"##teamcity[progressMessage 'Checking mandark \'{sandbox_id}\' for error logs']")
 client = LogzioClient(username=LOGZIO_USERNAME,
                       password=LOGZIO_PASSWORD)
 errors = client.count_errors(sandbox_id=sandbox_id)
@@ -131,7 +134,7 @@ if errors:
                f'accountIds&' \
                f'switchToAccountId=27106'
     print(f"##teamcity[buildProblem description='Mandark {sandbox_id} has {errors} error(s)']")
-    print(f"##teamcity[progressMessage 'View errors: {link_url}']")
+    print(f"##teamcity[message test='View errors: {link_url}' status='ERROR']")
 else:
     print(f"##teamcity[message text='Mandark {sandbox_id} has no errors']")
 
