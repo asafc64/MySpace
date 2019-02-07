@@ -134,7 +134,7 @@ if errors:
                f'accountIds&' \
                f'switchToAccountId=27106'
     print(f"##teamcity[buildProblem description='Mandark {sandbox_id} has {errors} error(s)']")
-    print(f"##teamcity[message test='View errors: {link_url}' status='ERROR']")
+    print(f"##teamcity[message text='View errors: {link_url}' status='ERROR']")
 else:
     print(f"##teamcity[message text='Mandark {sandbox_id} has no errors']")
 
