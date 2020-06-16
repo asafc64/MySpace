@@ -21,10 +21,12 @@ inputs:
 
 applications:
   - basic_app:
+      target: single
       instances: 1
 
   - advanced_app:
-      instances: 2
+      target: single
+      instances: 1
       depends_on:
         - basic_app
       input_values:
