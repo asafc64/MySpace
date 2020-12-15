@@ -20,7 +20,7 @@ inputs:
 
 
 applications:
-  - basic_app:
+  - basic_app_2:
       instances: 1
 
   - advanced_app:
